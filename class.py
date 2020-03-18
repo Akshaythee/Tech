@@ -16,10 +16,15 @@ class Tech:
     def setMentorOrLearner(self,p):
          self.p=p
          if self.p == 'Mentor':
-            print ("Enter your name and available time (from to till)")
-            self.name=input()
-            self.time1=input()
-            self.time2=input()
+            while 1:
+                print ("Enter your name and available time (from to till in railway time)")
+                self.name=input()
+                self.time1=input()
+                self.time2=input()
+                if float(self.time1) <= float(self.time2) and float(self.time2) <= 24.0 :
+                    break
+                else:
+                    print("Entered value of time is wrong!")
             return(1)
          elif self.p == 'Learner':
             print ("Enter your name")
@@ -39,7 +44,7 @@ class Tech:
         l=len(self.mentor)
         print("The available mentor/mentors are:")
         for i in range(0,l):
-            if self.stack[i] == self.Stack and str(self.Time) >= str(self.Time1[i]) and str(self.Time) <= str(self.Time2[i]):
+            if self.stack[i] == self.Stack and float(self.Time) >= float(self.Time1[i]) and float(self.Time) <= float(self.Time2[i]):
                 print(self.mentor[i])
                 self.a+=1
         if self.a==0:
